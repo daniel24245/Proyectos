@@ -1,0 +1,129 @@
+:root {
+    --letter: #fbeee6; /* Color beige claro de la tarjeta */
+    --letter-love: 420px; /* Altura estimada de la tarjeta */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Fondo rosa con corazones */
+.background-hearts {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #ff4d94 0%, #4a001a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-title {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+/* Estilo de la tarjeta principal */
+.Happy_Birthday {
+    position: absolute;
+    left: 50%;
+    width: 90%;
+    max-width: 450px;
+    height: var(--letter-love);
+    transform: translateX(-50%);
+    background: var(--letter);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.card-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dedication {
+    font-size: 1.1rem;
+    color: #4a2c2a;
+    font-weight: 500;
+    margin: 0;
+}
+/* Asegura que el contenedor del árbol tenga un tamaño controlado y se ubique a la derecha */
+.tree-container {
+    position: absolute;
+    right: 20px;
+    top: 50px;
+    width: 220px;  /* Controla el ancho del espacio del árbol */
+    height: 240px; /* Controla el alto del espacio del árbol */
+    overflow: visible;
+}
+
+/* Controla el tamaño exacto de la imagen para que no se desborde */
+.heart-tree {
+    width: 100%;        /* Se adapta al cuadro blanco */
+    max-width: 220px;   /* ¡ESTO LO DETIENE! No lo deja hacerse gigante */
+    height: auto;       /* Evita que se estire feo */
+    display: block;
+    margin: 15px auto;  /* Le da espacio arriba y abajo y lo centra */
+}
+
+/* Pétalos flotando desde el árbol */
+.heart-drop {
+    position: absolute; /* Permite que se desplace fuera del árbol */
+    font-size: 16px; 
+    user-select: none;
+    pointer-events: none;
+    z-index: 999;
+    
+    /* Asegura que cargue la animación correctamente */
+    animation-name: naturalDropAndSpiral;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes naturalDropAndSpiral {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    30% {
+        /* Sale disparado fuertemente a la izquierda y baja solo un poco */
+        transform: translate(-150px, 40px) rotate(-45deg);
+    }
+    55% {
+        /* Sigue viajando a la izquierda mientras empieza el primer rulo del espiral */
+        transform: translate(-280px, 15px) rotate(-120deg);
+    }
+    75% {
+        /* Hace el giro del remolino flotando hacia arriba y más a la izquierda */
+        transform: translate(-360px, -40px) rotate(-240deg);
+    }
+    90% {
+        /* Baja un poco en el remolino pero ya casi fuera de la pantalla por la izquierda */
+        transform: translate(-440px, 60px) rotate(-320deg);
+    }
+    100% {
+        /* Se va por completo del borde izquierdo */
+        transform: translate(-550px, 20px) rotate(-360deg);
+        opacity: 0;
+    }
+}
