@@ -1,7 +1,7 @@
 // ==========================================
 // 1. CÓDIGO DEL CONTADOR
 // ==========================================
-const targetDate = new Date("September 23, 2027 00:00:00").getTime();
+const targetDate = new Date("September 23, 2026 00:00:00").getTime();
 
 const countdown = setInterval(() => {
     const now = new Date().getTime();
